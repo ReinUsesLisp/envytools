@@ -1278,8 +1278,7 @@ static struct insn tab5cb0_2[] = {
 };
 
 static struct insn tab5cb0_0[] = {
-	{ 0x0000000000000400ull, 0x0000020000000c00ull, N("f16") },
-	{ 0x0000020000000400ull, 0x0000020000000c00ull, N("f16"), N("h1") },
+	{ 0x0000000000000400ull, 0x0000000000000c00ull, N("f16") },
 	{ 0x0000000000000800ull, 0x0000000000000c00ull, N("f32") },
 	{ 0x0000000000000c00ull, 0x0000000000000c00ull, N("f64") },
 	{ 0, 0, OOPS },
@@ -1291,6 +1290,11 @@ static struct insn tab5cb0_1[] = {
 	{ 0x0000010000000000ull, 0x0000018000000000ull, N("ceil") },
 	{ 0x0000018000000000ull, 0x0000018000000000ull, N("trunc") },
 	{ 0, 0, OOPS },
+};
+
+static struct insn tab5cb0_3[] = {
+	{ 0x0000020000000400ull, 0x0000020000000c00ull, N("h1") },
+	{ 0x0000000000000000ull, 0x0000000000000000ull },
 };
 
 static struct insn tab5ca8_0[] = {
@@ -1978,8 +1982,8 @@ static struct insn tabroot[] = {
 	{ 0x5ce0000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "i2i"), T(5ce0_0), T(5ce0_1), ON(50, sat), ON(47, cc), REG_00, T(5cf0_1), ON(45, neg), ON(49, abs), REG_20 },
 	{ 0x5cc0000000000000ull, 0xfff0000000000000ull, OP8B, T(pred), N(      "iadd3"), T(5cc0_0), ON(48, x), ON(47, cc), REG_00, ON(51, neg), T(5cc0_1), REG_08, ON(50, neg), T(5cc0_2), REG_20, ON(49, neg), T(5cc0_3), REG_39 },
 	{ 0x5cb8000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "i2f"), T(5cb8_0), T(5cb8_1), T(5cb8_2), ON(47, cc), REG_00, ON(45, neg), ON(49, abs),  T(5cf0_1), REG_20 },
-	{ 0x5cb0000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "f2i"), ON(44, ftz), T(5cb0_2), T(5cb0_0), T(5cb0_1), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), REG_20 },
-	{ 0x5ca8000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "f2f"), ON(44, ftz), T(5cb0_0), T(5cb8_0), T(5ca8_0), ON(50, sat), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), REG_20},
+	{ 0x5cb0000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "f2i"), ON(44, ftz), T(5cb0_2), T(5cb0_0), T(5cb0_1), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), T(5cb0_3), REG_20 },
+	{ 0x5ca8000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "f2f"), ON(44, ftz), T(5cb0_0), T(5cb8_0), T(5ca8_0), ON(50, sat), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), T(5cb0_3), REG_20},
 	{ 0x5ca0000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "sel"), REG_00, REG_08, REG_20, T(pred39) },
 	{ 0x5c98000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "mov"), REG_00, REG_20, U04_39 },
 	{ 0x5c90000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "rro"), T(5c90_0), REG_00, ON(45, neg), ON(49, abs), REG_20 },
@@ -2052,8 +2056,8 @@ static struct insn tabroot[] = {
 	{ 0x4ce0000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "i2i"), T(5ce0_0), T(5ce0_1), ON(50, sat), ON(47, cc), REG_00, T(5cf0_1), ON(45, neg), ON(49, abs), C34_RZ_O14_20 },
 	{ 0x4cc0000000000000ull, 0xfff0000000000000ull, OP8B, T(pred), N(      "iadd3"), ON(48, x), ON(47, cc), REG_00, ON(51, neg), REG_08, ON(50, neg), C34_RZ_O14_20, ON(49, neg), REG_39 },
 	{ 0x4cb8000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "i2f"), T(5cb8_0), T(5cb8_1), T(5cb8_2), ON(47, cc), REG_00, ON(45, neg), ON(49, abs),  T(5cf0_1), C34_RZ_O14_20 },
-	{ 0x4cb0000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "f2i"), ON(44, ftz), T(5cb0_2), T(5cb0_0), T(5cb0_1), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), C34_RZ_O14_20 },
-	{ 0x4ca8000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "f2f"), ON(44, ftz), T(5cb0_0), T(5cb8_0), T(5ca8_0), ON(50, sat), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), C34_RZ_O14_20 },
+	{ 0x4cb0000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "f2i"), ON(44, ftz), T(5cb0_2), T(5cb0_0), T(5cb0_1), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), T(5cb0_3), C34_RZ_O14_20 },
+	{ 0x4ca8000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "f2f"), ON(44, ftz), T(5cb0_0), T(5cb8_0), T(5ca8_0), ON(50, sat), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), T(5cb0_3), C34_RZ_O14_20 },
 	{ 0x4ca0000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "sel"), REG_00, REG_08, C34_RZ_O14_20, T(pred39) },
 	{ 0x4c98000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "mov"), REG_00, C34_RZ_O14_20, U04_39 },
 	{ 0x4c90000000000000ull, 0xfff8000000000000ull, OP8B, T(pred), N(        "rro"), T(5c90_0), REG_00, ON(45, neg), ON(49, abs), C34_RZ_O14_20 },
@@ -2098,8 +2102,8 @@ static struct insn tabroot[] = {
 	{ 0x38e0000000000000ull, 0xfef8000000000000ull, OP8B, T(pred), N(        "i2i"), T(5ce0_0), T(5ce0_1), ON(50, sat), ON(47, cc), REG_00, T(5cf0_1), ON(45, neg), ON(49, abs), S20_20 },
 	{ 0x38c0000000000000ull, 0xfef0000000000000ull, OP8B, T(pred), N(      "iadd3"), ON(48, x), ON(47, cc), REG_00, ON(51, neg), REG_08, ON(50, neg), S20_20, ON(49, neg), REG_39 },
 	{ 0x38b8000000000000ull, 0xfef8000000000000ull, OP8B, T(pred), N(        "i2f"), T(5cb8_0), T(5cb8_1), T(5cb8_2), ON(47, cc), REG_00, ON(45, neg), ON(49, abs),  T(5cf0_1), S20_20 },
-	{ 0x38b0000000000000ull, 0xfef8000000000000ull, OP8B, T(pred), N(        "f2i"), ON(44, ftz), T(5cb0_2), T(5cb0_0), T(5cb0_1), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), F20_20 },
-	{ 0x38a8000000000000ull, 0xfef8000000000000ull, OP8B, T(pred), N(        "f2f"), ON(44, ftz), T(5cb0_0), T(5cb8_0), T(5ca8_0), ON(50, sat), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), F20_20},
+	{ 0x38b0000000000000ull, 0xfef8000000000000ull, OP8B, T(pred), N(        "f2i"), ON(44, ftz), T(5cb0_2), T(5cb0_0), T(5cb0_1), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), T(5cb0_3), F20_20 },
+	{ 0x38a8000000000000ull, 0xfef8000000000000ull, OP8B, T(pred), N(        "f2f"), ON(44, ftz), T(5cb0_0), T(5cb8_0), T(5ca8_0), ON(50, sat), ON(47, cc), REG_00, ON(45, neg), ON(49, abs), T(5cb0_3), F20_20 },
 	{ 0x38a0000000000000ull, 0xfef8000000000000ull, OP8B, T(pred), N(        "sel"), REG_00, REG_08, S20_20, T(pred39) },
 	{ 0x3898000000000000ull, 0xfef8000000000000ull, OP8B, T(pred), N(        "mov"), REG_00, S20_20, U04_39 },
 	{ 0x3890000000000000ull, 0xfef8000000000000ull, OP8B, T(pred), N(        "rro"), T(5c90_0), REG_00, ON(45, neg), ON(49, abs), F20_20 },
